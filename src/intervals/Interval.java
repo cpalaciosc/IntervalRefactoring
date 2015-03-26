@@ -4,12 +4,10 @@ public class Interval {
 
 	private double min;
 	private double max;
-	private Opening opening;
 
-	public Interval(double minimum, double maximum, Opening opening) {
+	public Interval(double minimum, double maximum) {
 		this.min = minimum;
 		this.max = maximum;
-		this.opening = opening;
 	}
 
 	public double midPoint() {
