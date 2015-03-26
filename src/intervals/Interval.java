@@ -16,10 +16,20 @@ public abstract class Interval {
 
 	public abstract boolean includes(double value);
 	public abstract boolean includes(Interval interval);
-	public abstract boolean includes(LeftOpenedInterval leftOpenedinterval);
-	public abstract boolean includes(RightOpenedInterval rightOpenedinterval);
-	public abstract boolean includes(BothOpenedInterval bothOpenedinterval);
-	public abstract boolean includes(UnOpenedInterval unOpenedinterval);
+	public abstract boolean execute(Interval interval);
+	
+	public boolean includes(LeftOpenedInterval leftOpenedinterval){
+		return this.execute(leftOpenedinterval);
+	}
+	public boolean includes(RightOpenedInterval rightOpenedinterval){
+		return this.execute(rightOpenedinterval);
+	}
+	public boolean includes(BothOpenedInterval bothOpenedinterval){
+		return this.execute(bothOpenedinterval);
+	}
+	public boolean includes(UnOpenedInterval unOpenedinterval){
+		return this.execute(unOpenedinterval);
+	}
 	
 	public boolean intersectsWith(Interval interval) {
 		//TODO

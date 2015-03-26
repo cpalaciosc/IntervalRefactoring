@@ -17,23 +17,8 @@ public class RightOpenedInterval extends Interval {
 	}
 
 	@Override
-	public boolean includes(LeftOpenedInterval leftOpenedinterval) {
-		return ((leftOpenedinterval.includes(this.getMax()) || (this.getMax()==leftOpenedinterval.getMax())) && leftOpenedinterval.includes(this.getMin()));
-	}
-
-	@Override
-	public boolean includes(RightOpenedInterval rightOpenedinterval) {
-		return ((rightOpenedinterval.includes(this.getMax()) || (this.getMax()==rightOpenedinterval.getMax())) && rightOpenedinterval.includes(this.getMin()));
-	}
-
-	@Override
-	public boolean includes(BothOpenedInterval bothOpenedinterval) {
-		return ((bothOpenedinterval.includes(this.getMax()) || (this.getMax()==bothOpenedinterval.getMax())) && bothOpenedinterval.includes(this.getMin()));
-	}
-
-	@Override
-	public boolean includes(UnOpenedInterval unOpenedinterval) {
-		return ((unOpenedinterval.includes(this.getMax()) || (this.getMax()==unOpenedinterval.getMax())) && unOpenedinterval.includes(this.getMin()));
+	public boolean execute(Interval interval) {
+		return ((interval.includes(this.getMax()) || (this.getMax()==interval.getMax())) && interval.includes(this.getMin()));
 	}
 
 }
