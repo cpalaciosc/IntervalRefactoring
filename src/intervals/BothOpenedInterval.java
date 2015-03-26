@@ -8,7 +8,7 @@ public class BothOpenedInterval extends Interval {
 
 	@Override
 	public boolean includes(double value) {
-		return false;
+		return (value>this.getMin()&&value<this.getMax());
 	}
 
 	@Override
