@@ -18,7 +18,10 @@ public class RightOpenedInterval extends Interval {
 
 	@Override
 	public boolean execute(Interval interval) {
-		return ((interval.includes(this.getMax()) || (this.getMax()==interval.getMax())) && interval.includes(this.getMin()));
+		final boolean sameMaximum = this.getMax()==interval.getMax();
+		final boolean includeMinimum = interval.includes(this.getMin());
+		final boolean includeMaximum = interval.includes(this.getMax());
+		return (includeMaximum || sameMaximum) && includeMinimum;
 	}
 
 }

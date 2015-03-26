@@ -18,7 +18,9 @@ public class UnOpenedInterval extends Interval {
 
 	@Override
 	public boolean execute(Interval interval) {
-		return interval.includes(this.getMin()) && interval.includes(this.getMax());
+		final boolean includeMinimum = interval.includes(this.getMin());
+		final boolean includeMaximum = interval.includes(this.getMax());
+		return includeMinimum && includeMaximum;
 	}
 
 }
