@@ -17,7 +17,17 @@ public class Interval {
 	}
 
 	public boolean includes(double value) {
-		//TODO
+		
+		switch (this.opening){
+			case LEFT_OPENED:
+				return (value>this.min&&value<=this.max);
+			case RIGHT_OPENED:
+				return (value>=this.min&&value<this.max);
+			case BOTH_OPENED:
+				return (value>this.min&&value<this.max);
+			case UNOPENED:
+				return (value>=this.min&&value<=this.max);
+		}
 		return false;
 	}
 	
