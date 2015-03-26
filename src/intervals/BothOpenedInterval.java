@@ -13,7 +13,7 @@ public class BothOpenedInterval extends Interval {
 
 	@Override
 	public boolean includes(Interval interval) {
-		return false;
+		return ((this.includes(interval.getMin()) || (interval.getMin()==this.getMin()))) && ((this.includes(interval.getMax()) || (interval.getMax()==this.getMax())));
 	}
 
 }

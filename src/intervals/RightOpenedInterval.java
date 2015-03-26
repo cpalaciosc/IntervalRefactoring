@@ -13,7 +13,7 @@ public class RightOpenedInterval extends Interval {
 
 	@Override
 	public boolean includes(Interval interval) {
-		return false;
+		return ((this.includes(interval.getMax()) || (interval.getMax()==this.getMax())) && this.includes(interval.getMax()));
 	}
 
 }

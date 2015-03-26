@@ -13,7 +13,7 @@ public class UnOpenedInterval extends Interval {
 
 	@Override
 	public boolean includes(Interval interval) {
-		return false;
+		return this.includes(interval.getMin()) && this.includes(interval.getMax());
 	}
 
 }
