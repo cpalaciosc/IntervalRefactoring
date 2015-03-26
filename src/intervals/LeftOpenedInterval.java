@@ -6,4 +6,14 @@ public class LeftOpenedInterval extends Interval {
 		super(minimum, maximum);
 	}
 
+	@Override
+	public boolean includes(double value) {
+		return false;
+	}
+
+	@Override
+	public boolean includes(Interval interval) {
+		return false;
+	}
+
 }

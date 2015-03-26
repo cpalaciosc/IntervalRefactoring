@@ -1,6 +1,6 @@
 package intervals;
 
-public class Interval {
+public abstract class Interval {
 
 	private double min;
 	private double max;
@@ -14,35 +14,9 @@ public class Interval {
 		return (this.max + this.min)/2;
 	}
 
-	public boolean includes(double value) {
-		
-		switch (this.opening){
-			case LEFT_OPENED:
-				return (value>this.min&&value<=this.max);
-			case RIGHT_OPENED:
-				return (value>=this.min&&value<this.max);
-			case BOTH_OPENED:
-				return (value>this.min&&value<this.max);
-			case UNOPENED:
-				return (value>=this.min&&value<=this.max);
-		}
-		return false;
-	}
+	public abstract boolean includes(double value);
 	
-	public boolean includes(Interval interval) {
-		
-		switch (interval.opening){
-			case LEFT_OPENED:
-				return ((this.includes(interval.min) || (interval.min==this.min)) && this.includes(interval.max));
-			case RIGHT_OPENED:
-				return ((this.includes(interval.max) || (interval.max==this.max)) && this.includes(interval.min));
-			case BOTH_OPENED:
-				return ((this.includes(interval.min) || (interval.min==this.min))) && ((this.includes(interval.max) || (interval.max==this.max)));
-			case UNOPENED:
-				return this.includes(interval.min) && this.includes(interval.max);
-		}
-		return false;
-	}
+	public abstract boolean includes(Interval interval);
 	
 	public boolean intersectsWith(Interval interval) {
 		//TODO
