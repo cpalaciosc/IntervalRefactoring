@@ -32,7 +32,17 @@ public class Interval {
 	}
 	
 	public boolean includes(Interval interval) {
-		//TODO
+		
+		switch (interval.opening){
+			case LEFT_OPENED:
+				return ((this.includes(interval.min) || (interval.min==this.min)) && this.includes(interval.max));
+			case RIGHT_OPENED:
+				return ((this.includes(interval.max) || (interval.max==this.max)) && this.includes(interval.min));
+			case BOTH_OPENED:
+				return ((this.includes(interval.min) || (interval.min==this.min))) && ((this.includes(interval.max) || (interval.max==this.max)));
+			case UNOPENED:
+				return this.includes(interval.min) && this.includes(interval.max);
+		}
 		return false;
 	}
 	
