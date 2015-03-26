@@ -31,6 +31,22 @@ public abstract class Interval {
 		return this.execute(unOpenedinterval);
 	}
 	
+	protected boolean sameMinimum(Interval interval){
+		return this.getMin()==interval.getMin();
+	}
+	
+	protected boolean sameMaximum(Interval interval){
+		return this.getMax()==interval.getMax();
+	}
+	
+	protected boolean includeMinimum(Interval interval){
+		return interval.includes(this.getMin());
+	}
+	
+	protected boolean includeMaximum(Interval interval){
+		return interval.includes(this.getMax());
+	}
+	
 	public boolean intersectsWith(Interval interval) {
 		//TODO
 		return false;

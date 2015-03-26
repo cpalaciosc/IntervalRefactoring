@@ -18,11 +18,7 @@ public class BothOpenedInterval extends Interval {
 	
 	@Override
 	public boolean execute(Interval interval) {
-		final boolean sameMinimum = this.getMin()==interval.getMin();
-		final boolean sameMaximum = this.getMax()==interval.getMax();
-		final boolean includeMinimum = interval.includes(this.getMin());
-		final boolean includeMaximum = interval.includes(this.getMax());
-		return (includeMinimum || sameMinimum) && (includeMaximum || sameMaximum);
+		return (includeMinimum(interval) || sameMinimum(interval)) && (includeMaximum(interval) || sameMaximum(interval));
 	}
 
 }
