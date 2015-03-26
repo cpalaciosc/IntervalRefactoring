@@ -2,6 +2,16 @@ package intervals;
 
 public class Interval {
 
+	private double min;
+	private double max;
+	private Opening opening;
+
+	public Interval(double minimum, double maximum, Opening opening) {
+		this.min = minimum;
+		this.max = maximum;
+		this.opening = opening;
+	}
+
 	public double midPoint() {
 		//TODO
 		return 0;
@@ -37,5 +47,13 @@ public class Interval {
 	public boolean equals(Object object) {
 		//TODO
 		return false;
+	}
+
+	public double getMin() {
+		return min;
+	}
+
+	public double getMax() {
+		return max;
 	}
 }
