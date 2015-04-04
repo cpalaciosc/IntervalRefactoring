@@ -18,24 +18,9 @@ public abstract class Interval {
 		return min.compareWhenMin(value)&&max.compareWhenMax(value);
 	}
 	
-	public abstract boolean includes(Interval interval);	
-	
-	public abstract boolean execute(Interval interval);
-	
-	protected boolean sameMinimum(Interval interval){
-		return this.getMin().getValue()==interval.getMin().getValue();
-	}
-	
-	protected boolean sameMaximum(Interval interval){
-		return this.getMax().getValue()==interval.getMax().getValue();
-	}
-	
-	protected boolean includeMinimum(Interval interval){
-		return interval.includes(this.getMin().getValue());
-	}
-	
-	protected boolean includeMaximum(Interval interval){
-		return interval.includes(this.getMax().getValue());
+	public boolean includes(Interval interval){
+		return (interval.getMin().equalsValue(this.min.getValue()) || min.compareWhenMin(interval.getMin().getValue()))
+				&&(interval.getMax().equalsValue(this.max.getValue())||max.compareWhenMax(interval.getMax().getValue()));
 	}
 	
 	public boolean intersectsWith(Interval interval) {
