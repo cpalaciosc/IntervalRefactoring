@@ -19,8 +19,11 @@ public abstract class Interval {
 	}
 	
 	public boolean includes(Interval interval){
-		return (interval.getMin().equalsValue(this.min.getValue()) || min.compareWhenMin(interval.getMin().getValue()))
-				&&(interval.getMax().equalsValue(this.max.getValue())||max.compareWhenMax(interval.getMax().getValue()));
+		final boolean sameMax = interval.getMax().equalsValue(this.max.getValue());
+		final boolean sameMin = interval.getMin().equalsValue(this.min.getValue());
+		final boolean containMin = min.compareWhenMin(interval.getMin().getValue());
+		final boolean containMax = max.compareWhenMax(interval.getMax().getValue());		
+		return (sameMin||containMin)&&(sameMax||containMax);
 	}
 	
 	public boolean intersectsWith(Interval interval) {
