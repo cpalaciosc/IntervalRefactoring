@@ -15,4 +15,37 @@ public class Point {
 	public OpeningPointType getType() {
 		return type;
 	}
+	
+	public boolean compareWhenMax(double value){
+		switch(this.type){
+			case OPEN:
+				return value<this.value;
+			case CLOSED:
+				return value<=this.value;
+			default:
+				return false;
+		}
+	}
+	
+	public boolean compareWhenMin(double value){
+		switch(this.type){
+			case OPEN:
+				return value>this.value;
+			case CLOSED:
+				return value>=this.value;
+			default:
+				return false;
+		}
+	}
+	
+	public boolean equalsValue(double value){
+		switch(this.type){
+			case OPEN:
+				return this.value==value;
+			case CLOSED:
+				return false;
+			default:
+				return false;
+		}
+	}
 }
