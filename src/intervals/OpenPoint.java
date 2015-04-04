@@ -8,20 +8,15 @@ public class OpenPoint extends Point {
 
 	@Override
 	public boolean compareWhenMax(double value) {
-		// TODO Auto-generated method stub
-		return false;
+		return value<this.getValue();
 	}
 
 	@Override
 	public boolean compareWhenMin(double value) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean equalsValue(double value) {
-		// TODO Auto-generated method stub
-		return false;
+		return value>this.getValue();
 	}
 	
+	public boolean equalsValue(double value){
+		return this.getValue() == value;
+	}
 }

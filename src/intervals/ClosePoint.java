@@ -8,20 +8,16 @@ public class ClosePoint extends Point {
 
 	@Override
 	public boolean compareWhenMax(double value) {
-		// TODO Auto-generated method stub
-		return false;
+		return value<=this.getValue();
 	}
 
 	@Override
 	public boolean compareWhenMin(double value) {
-		// TODO Auto-generated method stub
-		return false;
+		return value>=this.getValue();
 	}
 
 	@Override
 	public boolean equalsValue(double value) {
-		// TODO Auto-generated method stub
 		return false;
 	}
-
 }
