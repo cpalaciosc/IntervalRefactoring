@@ -14,22 +14,13 @@ public abstract class Interval {
 		return (this.max.getValue() + this.min.getValue())/2;
 	}
 
-	public abstract boolean includes(double value);
-	public abstract boolean includes(Interval interval);
-	public abstract boolean execute(Interval interval);
+	public boolean includes(double value){
+		return min.compareWhenMin(value)&&max.compareWhenMax(value);
+	}
 	
-	public boolean includes(LeftOpenedInterval leftOpenedinterval){
-		return this.execute(leftOpenedinterval);
-	}
-	public boolean includes(RightOpenedInterval rightOpenedinterval){
-		return this.execute(rightOpenedinterval);
-	}
-	public boolean includes(BothOpenedInterval bothOpenedinterval){
-		return this.execute(bothOpenedinterval);
-	}
-	public boolean includes(UnOpenedInterval unOpenedinterval){
-		return this.execute(unOpenedinterval);
-	}
+	public abstract boolean includes(Interval interval);	
+	
+	public abstract boolean execute(Interval interval);
 	
 	protected boolean sameMinimum(Interval interval){
 		return this.getMin().getValue()==interval.getMin().getValue();

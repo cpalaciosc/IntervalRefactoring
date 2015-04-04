@@ -5,11 +5,6 @@ public class BothOpenedInterval extends Interval {
 	public BothOpenedInterval(Point minimum, Point maximum) {
 		super(minimum, maximum);
 	}
-
-	@Override
-	public boolean includes(double value) {
-		return (value>this.getMin().getValue()&&value<this.getMax().getValue());
-	}
 	
 	@Override
 	public boolean includes(Interval interval) {

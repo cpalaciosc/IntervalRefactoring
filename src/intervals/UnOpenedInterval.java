@@ -7,11 +7,6 @@ public class UnOpenedInterval extends Interval {
 	}
 
 	@Override
-	public boolean includes(double value) {
-		return (value>=this.getMin().getValue()&&value<=this.getMax().getValue());
-	}
-	
-	@Override
 	public boolean includes(Interval interval) {
 		return interval.includes(this);
 	}
