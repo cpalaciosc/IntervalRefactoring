@@ -2,13 +2,13 @@ package intervals;
 
 public class LeftOpenedInterval extends Interval {
 
-	public LeftOpenedInterval(double minimum, double maximum) {
+	public LeftOpenedInterval(Point minimum, Point maximum) {
 		super(minimum, maximum);
 	}
 
 	@Override
 	public boolean includes(double value) {
-		return (value>this.getMin()&&value<=this.getMax());
+		return (value>this.getMin().getValue()&&value<=this.getMax().getValue());
 	}
 	
 	@Override

@@ -4,6 +4,11 @@ public class Point {
 	private double value;
 	private OpeningPointType type;
 	
+	public Point(double value, OpeningPointType type){
+		this.value=value;
+		this.type=type;
+	}
+	
 	public double getValue() {
 		return value;
 	}

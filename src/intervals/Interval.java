@@ -2,16 +2,16 @@ package intervals;
 
 public abstract class Interval {
 
-	private double min;
-	private double max;
+	private Point min;
+	private Point max;
 
-	public Interval(double minimum, double maximum) {
+	public Interval(Point minimum, Point maximum) {
 		this.min = minimum;
 		this.max = maximum;
 	}
 
 	public double midPoint() {
-		return (this.max + this.min)/2;
+		return (this.max.getValue() + this.min.getValue())/2;
 	}
 
 	public abstract boolean includes(double value);
@@ -32,19 +32,19 @@ public abstract class Interval {
 	}
 	
 	protected boolean sameMinimum(Interval interval){
-		return this.getMin()==interval.getMin();
+		return this.getMin().getValue()==interval.getMin().getValue();
 	}
 	
 	protected boolean sameMaximum(Interval interval){
-		return this.getMax()==interval.getMax();
+		return this.getMax().getValue()==interval.getMax().getValue();
 	}
 	
 	protected boolean includeMinimum(Interval interval){
-		return interval.includes(this.getMin());
+		return interval.includes(this.getMin().getValue());
 	}
 	
 	protected boolean includeMaximum(Interval interval){
-		return interval.includes(this.getMax());
+		return interval.includes(this.getMax().getValue());
 	}
 	
 	public boolean intersectsWith(Interval interval) {
@@ -69,11 +69,11 @@ public abstract class Interval {
 		return false;
 	}
 
-	public double getMin() {
+	public Point getMin() {
 		return min;
 	}
 
-	public double getMax() {
+	public Point getMax() {
 		return max;
 	}
 }
